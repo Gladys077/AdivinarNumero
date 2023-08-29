@@ -29,37 +29,35 @@ function adivinar() { // Obtiene el n° ingresado y lo compara con el resultado 
         response.innerHTML = "Perdiste";
         setTimeout(()=>{
             limpiarTodo();
-        }, 2000);
+        }, 1000);
     }
 }
-function  limpiarTodo(){
-    let input = document.querySelector("#dato");
-   // let dato = parseInt(input.value);
-    let response = document.querySelector("#respuesta");
-    let subtitulo = document.querySelector("#subtitulo");
-
-        response.innerHTML = "Adivina el N° que saldrá"; // Restablece el título
-        subtitulo.innerHTML = "(Escriba un número del 1 al 10)";
-        input.value = ""; // Limpia el campo de entrada
-        let numeros = document.querySelector("#numerosCambiando");
-        numeros.innerHTML = ""; //Limpia el nro. sorteado
-}; 
-
 
 function mostrarImagen() {
-  let divImagen = document.querySelector("#imagen");
-  divImagen.style.display = "block"; //Muestra la imagen
+    let divImagen = document.querySelector("#imagen");
 
-  const botonCerrar = document.querySelector("#cerrarImagen");
-  botonCerrar.addEventListener("click", ocultarImagen);
-}
+    divImagen.style.display = "block"; //Muestra la imagen
+  
+    botonX.addEventListener("click", ocultarImagen);
+  }
+
+function  limpiarTodo(){
+    let input = document.querySelector("#dato");
+    let response = document.querySelector("#respuesta");
+    let subtitulo = document.querySelector("#subtitulo");
+    let numeros = document.querySelector("#numerosCambiando");
+
+    response.innerHTML = "Adivina el N° que saldrá"; // Restablece el título
+    subtitulo.innerHTML = "(Escriba un número del 1 al 10)";
+    input.value = ""; // Limpia el campo de entrada
+    numeros.innerHTML = ""; //Limpia el nro. sorteado
+}; 
 
 function ocultarImagen() {
     let divImagen = document.querySelector("#imagen");
     divImagen.style.display = "none";
 
-    const botonCerrar = document.querySelector("#cerrarImagen");
-    botonCerrar.removeEventListener("click", ocultarImagen);
+    botonX.removeEventListener("click", ocultarImagen);
 
     limpiarTodo();
 }
@@ -81,7 +79,7 @@ function mostrarNumeros() {
             setTimeout(() => {
                 numeros.innerHTML = numeroSorteado; // Muestra el último número sorteado al finalizar la secuencia
                 adivinar(); // Llama a la función después de mostrar el número sorteado
-            }, 200); // Espera un momento antes de mostrar el número sorteado y llamar a la función adivinar
+            }, 100); // Espera un momento antes de mostrar el número sorteado y llamar a la función adivinar
         }
     }, 100); // velocidad de la secuencia ajustando este valor
 }

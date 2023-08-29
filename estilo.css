@@ -3,7 +3,7 @@ body {
 }
   
 .container {
-    position: relative;
+    position: relative; 
     width: 30em;
     height: 30em;
     background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);    
